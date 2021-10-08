@@ -1,0 +1,26 @@
+name: CI
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    name: deploy
+    runs-on: ubuntu-latest
+    environment: production
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      with:
+        ref: ${{ github.head_ref }}
+
+    - name: Check the Terraform code
+      uses: dflook/terraform-plan@v1
+
+    - name: Deploy with Terraform
+      uses: dflook/terraform-apply@1
+      with:
+        # auto_approve: true
