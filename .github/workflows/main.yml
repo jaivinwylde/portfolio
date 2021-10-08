@@ -21,6 +21,6 @@ jobs:
       uses: dflook/terraform-plan@v1
 
     - name: Deploy with Terraform
-      uses: dflook/terraform-apply@1
+      uses: dflook/terraform-apply@v1
       # with:
         # auto_approve: true
