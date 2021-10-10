@@ -10,17 +10,20 @@ jobs:
     name: deploy
     runs-on: ubuntu-latest
     environment: production
-    env:
-      AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
-      AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
-      CLOUDFLARE_API_KEY: ${{secrets.CLOUDFLARE_API_KEY}}
-      CLOUDFLARE_EMAIL: ${{secrets.CLOUDFLARE_EMAIL}}
 
     steps:
     - name: Checkout code
       uses: actions/checkout@v2
       with:
         ref: ${{ github.head_ref }}
+
+    - name: Initialize Terraform
+      uses: dflook/terraform-init@v1
+      env:
+        AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
+        CLOUDFLARE_API_KEY: ${{secrets.CLOUDFLARE_API_KEY}}
+        CLOUDFLARE_EMAIL: ${{secrets.CLOUDFLARE_EMAIL}}
 
     - name: Check the Terraform code
       uses: dflook/terraform-check@v1
