@@ -5,6 +5,11 @@ terraform {
     key    = "state/"
     region = "us-west-1"
   }
+  required_providers {
+    cloudflare = {
+      source = "cloudflare/cloudflare"
+    }
+  }
 }
 
 // Initialize the providers
