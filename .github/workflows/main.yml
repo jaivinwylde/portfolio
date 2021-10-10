@@ -18,9 +18,15 @@ jobs:
         ref: ${{ github.head_ref }}
 
     - name: Check the Terraform code
-      uses: dflook/terraform-plan@v1
+      uses: dflook/terraform-check@v1
+      env:
+        AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
 
     - name: Deploy with Terraform
       uses: dflook/terraform-apply@v1
       # with:
         # auto_approve: true
+      env:
+        AWS_ACCESS_KEY_ID: ${{secrets.AWS_ACCESS_KEY_ID}}
+        AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
