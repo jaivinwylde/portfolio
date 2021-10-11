@@ -1,9 +1,9 @@
 // Setup the state management
 terraform {
   backend "s3" {
-    bucket = "waifudex-terraform-state"
-    key    = "state/"
-    region = "us-west-1"
+    bucket = "waifudex-terraform"
+    key    = "state/terraform.tfstate"
+    region = "us-east-1"
   }
   required_providers {
     cloudflare = {
