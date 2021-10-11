@@ -9,7 +9,7 @@ locals {
 */
 
 // Create the SES domain identity
-resource "aws_ses_domain_identify" "ses_domain" {
+resource "aws_ses_domain_identity" "ses_domain" {
   domain = local.ses_domain
 }
 
@@ -18,13 +18,13 @@ resource "cloudflare_record" "ses_domain_dns" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = "_amazonses"
   type    = "TXT"
-  records = [aws_ses_domain_identify.ses_domain.verification_token]
+  value   = aws_ses_domain_identity.ses_domain.verification_token
 }
 
 // Tie it back in with a DNS verification on AWS
-resource "aws_ses_domain_identify_verification" "ses_domain_verification" {
+resource "aws_ses_domain_identity_verification" "ses_domain_verification" {
   // Connects to the SES domain ID
-  domain = aws_ses_domain_identify.ses_domain.id
+  domain = aws_ses_domain_identity.ses_domain.id
 
   // Waits for the DNS record on Cloudflare to be created
   depends_on = [cloudflare_record.ses_domain_dns]
@@ -46,7 +46,7 @@ resource "cloudflare_record" "ses_dkim_dns" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = "${element(aws_ses_domain_dkim.ses_dkim.dkim_tokens, count.index)}._domainkey"
   type    = "CNAME"
-  records = ["${element(aws_ses_domain_dkim.ses_dkim.dkim_tokens, count.index)}.dkim.amazonses.com"]
+  value   = "${element(aws_ses_domain_dkim.ses_dkim.dkim_tokens, count.index)}.dkim.amazonses.com"
 }
 
 /*
@@ -55,7 +55,7 @@ resource "cloudflare_record" "ses_dkim_dns" {
 
 // Create the mail from resource for mail.domain
 resource "aws_ses_domain_mail_from" "ses_mail_from" {
-  domain           = local.ses_domain
+  domain           = aws_ses_domain_identity.ses_domain.domain
   mail_from_domain = local.mail_from_domain
 }
 
@@ -65,7 +65,8 @@ resource "cloudflare_record" "ses_mail_from_dns_mx" {
   name     = local.mail_from_domain
   type     = "MX"
   priority = 10
-  records  = ["feedback-smtp.${var.aws_region}.amazonses.com"]
+  // Using the us-west-1 region to improve inbox placement
+  value = "feedback-smtp.us-west-1.amazonses.com"
 }
 
 /*
@@ -76,7 +77,7 @@ resource "cloudflare_record" "ses_dns_receiving_email" {
   name     = local.ses_domain
   type     = "MX"
   priority = 10
-  records  = ["inbound-smtp.${var.aws_region}.amazonaws.com"]
+  value    = "inbound-smtp.${var.aws_region}.amazonaws.com"
 }
 
 /*
@@ -88,7 +89,7 @@ resource "cloudflare_record" "ses_dns_mail_from_spf" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = local.mail_from_domain
   type    = "TXT"
-  records = ["v=spf1 include:amazonses.com ~all"]
+  value   = "v=spf1 include:amazonses.com ~all"
 }
 
 // Add the DMARC DNS record
@@ -96,5 +97,5 @@ resource "cloudflare_record" "ses_dns_dmarc" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = "_dmarc.${local.mail_from_domain}"
   type    = "TXT"
-  record  = ["v=DMARC1; p=none; rua=mailto:${local.dmarc_email}"]
+  value   = "v=DMARC1; p=none; rua=mailto:${local.dmarc_email}"
 }
