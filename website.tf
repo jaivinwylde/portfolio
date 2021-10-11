@@ -33,6 +33,7 @@ resource "cloudflare_record" "site_dns" {
   name    = "@"
   type    = "CNAME"
   value   = "${local.bucket}.${local.region}.digitaloceanspaces.com"
+  proxied = true
 }
 
 // Create a redirect record for www
@@ -41,4 +42,5 @@ resource "cloudflare_record" "www_dns" {
   name    = "www"
   type    = "CNAME"
   value   = "@"
+  proxied = true
 }
