@@ -65,6 +65,7 @@ resource "cloudflare_record" "ses_mail_from_dns_mx" {
   name     = local.mail_from_domain
   type     = "MX"
   priority = 10
+
   // Using the us-west-1 region to improve inbox placement
   value = "feedback-smtp.us-west-1.amazonses.com"
 }
@@ -85,7 +86,7 @@ resource "cloudflare_record" "ses_dns_receiving_email" {
 */
 
 // Add the mail from TXT DNS record for SPF
-resource "cloudflare_record" "ses_dns_mail_from_spf" {
+resource "cloudflare_record" "ses_mail_from_dns_spf" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = local.mail_from_domain
   type    = "TXT"

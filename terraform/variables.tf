@@ -9,3 +9,9 @@ variable "aws_region" {
   type        = string
   default     = "us-east-1"
 }
+
+variable "do_region" {
+  description = "The default region of our Digitalocean resources."
+  type        = string
+  default     = "sfo3"
+}
