@@ -28,5 +28,4 @@ jobs:
     - name: Deploy with Terraform
       uses: dflook/terraform-apply@v1
       with:
-        workspace: terraform
         auto_approve: true

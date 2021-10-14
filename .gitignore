@@ -22,5 +22,6 @@ npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
 
-terraform/secrets.sh
-terraform/.terraform
+secrets.sh
+.terraform
+.terraform.lock.hcl
