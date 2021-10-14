@@ -15,8 +15,6 @@ jobs:
       AWS_SECRET_ACCESS_KEY: ${{secrets.AWS_SECRET_ACCESS_KEY}}
       CLOUDFLARE_API_KEY: ${{secrets.CLOUDFLARE_API_KEY}}
       CLOUDFLARE_EMAIL: ${{secrets.CLOUDFLARE_EMAIL}}
-      SPACES_ACCESS_KEY_ID: ${{secrets.SPACES_ACCESS_KEY_ID}}
-      SPACES_SECRET_ACCESS_KEY: ${{secrets.SPACES_SECRET_ACCESS_KEY}}
 
     steps:
     - name: Checkout code
