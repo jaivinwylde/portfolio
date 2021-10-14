@@ -43,14 +43,6 @@ resource "aws_s3_bucket_policy" "public_read" {
   })
 }
 
-// Get the source files
-module "src_dir" {
-  source  = "hashicorp/dir/template"
-  version = "1.0.2"
-
-  base_dir = "${path.module}/build"
-}
-
 // Add the files to the bucket
 resource "aws_s3_bucket_object" "site" {
   for_each = module.src_dir.files

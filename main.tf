@@ -5,6 +5,7 @@ terraform {
     key    = "jai.vin/terraform.tfstate"
     region = "us-east-1"
   }
+  // Define the providers
   required_providers {
     aws = {
       source  = "hashicorp/aws"
@@ -27,6 +28,14 @@ provider "aws" {
 }
 provider "cloudflare" {}
 provider "digitalocean" {}
+
+// Initialize the modules
+module "src_dir" {
+  source  = "hashicorp/dir/template"
+  version = "1.0.2"
+
+  base_dir = "${path.module}/build"
+}
 
 // Get the cloudflare zone
 data "cloudflare_zones" "domain" {
