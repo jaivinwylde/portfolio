@@ -10,6 +10,7 @@
 ### Deployed with:
 
 - Terraform
+- Github Actions
 
 ### Deployed on:
 
