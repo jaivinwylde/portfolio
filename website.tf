@@ -69,11 +69,27 @@ resource "cloudflare_record" "site" {
   proxied = true
 }
 
-// Add the CNAME for www to point to the root
+// Add the CNAME for www that points to the root
 resource "cloudflare_record" "www" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = "www"
   value   = var.domain
   type    = "CNAME"
   proxied = true
+}
+
+/*
+  Setup a page rule for the whole site.
+*/
+resource "cloudflare_page_rule" "main_rule" {
+  zone_id = data.cloudflare_zones.domain.zones[0].id
+  target  = "*.${var.domain}/*"
+
+  actions {
+    cache_level = "cache_everything"
+    // A day
+    browser_cache_ttl = 86400
+    // A week
+    edge_cache_ttl = 86400 * 7
+  }
 }
