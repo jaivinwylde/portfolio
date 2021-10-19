@@ -15,10 +15,6 @@ terraform {
       source  = "cloudflare/cloudflare"
       version = "~> 3.0"
     }
-    digitalocean = {
-      source  = "digitalocean/digitalocean"
-      version = "~> 2.0"
-    }
   }
 }
 
@@ -27,7 +23,6 @@ provider "aws" {
   region = var.aws_region
 }
 provider "cloudflare" {}
-provider "digitalocean" {}
 
 // Initialize the modules
 module "src_dir" {
