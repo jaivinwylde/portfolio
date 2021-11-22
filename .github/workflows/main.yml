@@ -26,7 +26,7 @@ jobs:
         node-version: "14"
 
     - name: Install packages
-      run: npm install
+      run: npm install --production
 
     - name: Build React
       run: yarn build
@@ -35,3 +35,4 @@ jobs:
       uses: dflook/terraform-apply@v1
       with:
         auto_approve: true
+        path: tf
