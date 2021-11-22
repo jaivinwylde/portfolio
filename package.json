@@ -16,6 +16,7 @@
     "prettier": "^2.3.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
+    "react-router-dom": "^6.0.2",
     "react-scripts": "4.0.3",
     "typescript": "^4.3.5"
   },
@@ -103,6 +104,20 @@
         "error",
         "never"
       ]
+    },
+    "settings": {
+      "import/parsers": {
+        "@typescript-eslint/parser": [
+          ".ts",
+          ".tsx"
+        ]
+      },
+      "import/resolver": {
+        "typescript": {
+          "alwaysTryTypes": true,
+          "project": "./tsconfig.json"
+        }
+      }
     }
   },
   "browserslist": {
@@ -116,5 +131,8 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "eslint-import-resolver-typescript": "^2.5.0"
   }
 }
