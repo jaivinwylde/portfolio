@@ -29,7 +29,7 @@ module "src_dir" {
   source  = "hashicorp/dir/template"
   version = "1.0.2"
 
-  base_dir = "${path.module}/build"
+  base_dir = "${path.module}/../build"
 }
 
 // Get the cloudflare zone
