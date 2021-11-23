@@ -1,4 +1,4 @@
-import { chanceOf, sum } from "utils"
+import { chanceOf, sum } from "../utils"
 
 import { useMemo, useState } from "react"
 

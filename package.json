@@ -104,20 +104,6 @@
         "error",
         "never"
       ]
-    },
-    "settings": {
-      "import/parsers": {
-        "@typescript-eslint/parser": [
-          ".ts",
-          ".tsx"
-        ]
-      },
-      "import/resolver": {
-        "typescript": {
-          "alwaysTryTypes": true,
-          "project": "./tsconfig.json"
-        }
-      }
     }
   },
   "browserslist": {
@@ -132,7 +118,5 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "eslint-import-resolver-typescript": "^2.5.0"
-  }
+  "devDependencies": {}
 }

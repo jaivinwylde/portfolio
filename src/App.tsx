@@ -1,4 +1,4 @@
-import { WorkRng } from "pages/workrng"
+import { WorkRng } from "./pages/workrng"
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
