@@ -43,7 +43,7 @@ export function WorkRng() {
     const date = new Date()
 
     const month = date.getUTCMonth()
-    const day = date.getUTCDay()
+    const day = date.getDate()
     const year = date.getUTCFullYear()
 
     return `${month}/${day}/${year}`
