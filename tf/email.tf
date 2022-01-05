@@ -71,14 +71,28 @@ resource "cloudflare_record" "ses_mail_from_dns_mx" {
 }
 
 /*
-  Add an MX DNS record for receiving email
+  Add an MX DNS record for email forwarding/receiving
 */
-resource "cloudflare_record" "ses_dns_receiving_email" {
+resource "cloudflare_record" "isaac_forward_mx" {
   zone_id  = data.cloudflare_zones.domain.zones[0].id
   name     = local.ses_domain
   type     = "MX"
-  priority = 10
-  value    = "inbound-smtp.${var.aws_region}.amazonaws.com"
+  priority = 37
+  value    = "isaac.mx.cloudflare.net"
+}
+resource "cloudflare_record" "linda_forward_mx" {
+  zone_id  = data.cloudflare_zones.domain.zones[0].id
+  name     = local.ses_domain
+  type     = "MX"
+  priority = 23
+  value    = "linda.mx.cloudflare.net"
+}
+resource "cloudflare_record" "amir_forward_mx" {
+  zone_id  = data.cloudflare_zones.domain.zones[0].id
+  name     = local.ses_domain
+  type     = "MX"
+  priority = 2
+  value    = "amir.mx.cloudflare.net"
 }
 
 /*
@@ -90,7 +104,7 @@ resource "cloudflare_record" "ses_mail_from_dns_spf" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
   name    = local.mail_from_domain
   type    = "TXT"
-  value   = "v=spf1 include:amazonses.com ~all"
+  value   = "v=spf1 include:_spf.mx.cloudflare.net ~all"
 }
 
 // Add the DMARC DNS record
