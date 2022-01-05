@@ -102,7 +102,7 @@ resource "cloudflare_record" "amir_forward_mx" {
 // Add the mail from TXT DNS record for SPF
 resource "cloudflare_record" "ses_mail_from_dns_spf" {
   zone_id = data.cloudflare_zones.domain.zones[0].id
-  name    = local.mail_from_domain
+  name    = local.ses_domain
   type    = "TXT"
   value   = "v=spf1 include:_spf.mx.cloudflare.net ~all"
 }
