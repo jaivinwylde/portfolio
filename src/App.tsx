@@ -1,4 +1,4 @@
-import { WorkRng } from "./pages/workrng"
+import { Home } from "./pages"
 
 import { BrowserRouter, Route, Routes } from "react-router-dom"
 
@@ -6,8 +6,7 @@ export function App() {
   return (
     <BrowserRouter>
       <Routes>
-        <Route path="/" element={<>sup</>} />
-        <Route path="/workrng" element={<WorkRng />} />
+        <Route path="/" element={<Home />} />
       </Routes>
     </BrowserRouter>
   )
