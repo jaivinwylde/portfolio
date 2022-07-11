@@ -23,6 +23,10 @@ export function Home() {
         label="twitch"
         link="https://www.twitch.com/jaivinwylde"
       />
+      <PortfolioLink
+        label="github"
+        link="https://www.github.com/jaivinwylde"
+      />
       <br />
       checkout my cool projects
       <PortfolioLink
