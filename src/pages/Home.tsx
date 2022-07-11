@@ -8,7 +8,6 @@ export function Home() {
       <br />
       <br />
       follow my socials
-      <br />
       <PortfolioLink
         label="instagram"
         link="https://instagram.com/jaivinwylde"
@@ -25,7 +24,6 @@ export function Home() {
         link="https://www.twitch.com/jaivinwylde"
       />
       <br />
-      <br />
       checkout my cool projects
       <PortfolioLink
         label="Robo Highlights"
@@ -33,6 +31,8 @@ export function Home() {
       />
       <PortfolioLink label="Waifudex" link="https://waifudex.com" />
       <br />
+      get in touch
+      <PortfolioLink label="me@jai.vin" link="mailto:me@jai.vin" />
       <br />© Jaivin Wylde
     </>
   )
