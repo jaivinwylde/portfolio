@@ -7,6 +7,9 @@ export function Home() {
       countless sleepless nights to build :)
       <br />
       <br />
+      get in touch
+      <PortfolioLink label="me@jai.vin" link="mailto:me@jai.vin" />
+      <br />
       follow my socials
       <PortfolioLink
         label="instagram"
@@ -34,9 +37,6 @@ export function Home() {
         link="https://youtube.com/robohighlights"
       />
       <PortfolioLink label="Waifudex" link="https://waifudex.com" />
-      <br />
-      get in touch
-      <PortfolioLink label="me@jai.vin" link="mailto:me@jai.vin" />
       <br />© Jaivin Wylde
     </>
   )
