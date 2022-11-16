@@ -15,7 +15,7 @@ export function Home() {
         label="instagram"
         link="https://instagram.com/jaivinwylde"
       />
-      <PortfolioLink label="youtube" link="https://youtube.com/jaivinwylde" />
+      <PortfolioLink label="youtube" link="https://youtube.com/@jaiv" />
       <PortfolioLink label="tiktok" link="https://tiktok.com/@jaivinwylde" />
       <PortfolioLink label="twitter" link="https://twitter.com/jaivinwylde" />
       <PortfolioLink
