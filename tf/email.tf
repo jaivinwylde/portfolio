@@ -20,10 +20,10 @@ resource "cloudflare_record" "ses_domain_dns" {
   type    = "TXT"
   value   = aws_ses_domain_identity.ses_domain.verification_token
 
-  tags            = [""]
-  comment         = ""
-  proxied         = false
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // proxied         = false
+  // allow_overwrite = false
 }
 
 // Tie it back in with a DNS verification on AWS
@@ -53,10 +53,10 @@ resource "cloudflare_record" "ses_dkim_dns" {
   type    = "CNAME"
   value   = "${element(aws_ses_domain_dkim.ses_dkim.dkim_tokens, count.index)}.dkim.amazonses.com"
 
-  tags            = [""]
-  comment         = ""
-  proxied         = false
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // proxied         = false
+  // allow_overwrite = false
 }
 
 /*
@@ -79,10 +79,10 @@ resource "cloudflare_record" "ses_mail_from_dns_mx" {
   // Using the us-west-1 region to improve inbox placement (potentially)
   value = "feedback-smtp.us-west-1.amazonses.com"
 
-  tags            = [""]
-  comment         = ""
-  proxied         = false
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // proxied         = false
+  // allow_overwrite = false
 }
 
 /*
@@ -95,10 +95,10 @@ resource "cloudflare_record" "isaac_forward_mx" {
   priority = 37
   value    = "isaac.mx.cloudflare.net"
 
-  tags            = [""]
-  comment         = ""
-  proxied         = false
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // proxied         = false
+  // allow_overwrite = false
 }
 resource "cloudflare_record" "linda_forward_mx" {
   zone_id  = data.cloudflare_zones.domain.zones[0].id
@@ -107,10 +107,10 @@ resource "cloudflare_record" "linda_forward_mx" {
   priority = 23
   value    = "linda.mx.cloudflare.net"
 
-  tags            = [""]
-  comment         = ""
-  proxied         = false
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // proxied         = false
+  // allow_overwrite = false
 }
 resource "cloudflare_record" "amir_forward_mx" {
   zone_id  = data.cloudflare_zones.domain.zones[0].id
@@ -119,10 +119,10 @@ resource "cloudflare_record" "amir_forward_mx" {
   priority = 2
   value    = "amir.mx.cloudflare.net"
 
-  tags            = [""]
-  comment         = ""
-  proxied         = false
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // proxied         = false
+  // allow_overwrite = false
 }
 
 /*
@@ -136,10 +136,10 @@ resource "cloudflare_record" "ses_mail_from_dns_spf" {
   type    = "TXT"
   value   = "v=spf1 include:_spf.mx.cloudflare.net ~all"
 
-  tags            = [""]
-  comment         = ""
-  proxied         = false
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // proxied         = false
+  // allow_overwrite = false
 }
 
 // Add the DMARC DNS record
@@ -149,8 +149,8 @@ resource "cloudflare_record" "ses_dns_dmarc" {
   type    = "TXT"
   value   = "v=DMARC1; p=none; rua=mailto:${local.dmarc_email}"
 
-  tags            = [""]
-  comment         = ""
-  proxied         = false
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // proxied         = false
+  // allow_overwrite = false
 }

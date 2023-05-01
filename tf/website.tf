@@ -66,9 +66,9 @@ resource "cloudflare_record" "site" {
   type    = "CNAME"
   proxied = true
 
-  tags            = [""]
-  comment         = ""
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // allow_overwrite = false
 }
 
 // Add the CNAME for www that points to the root
@@ -79,9 +79,9 @@ resource "cloudflare_record" "www" {
   type    = "CNAME"
   proxied = true
 
-  tags            = [""]
-  comment         = ""
-  allow_overwrite = false
+  // tags            = [""]
+  // comment         = ""
+  // allow_overwrite = false
 }
 
 /*
@@ -98,38 +98,38 @@ resource "cloudflare_page_rule" "main_rule" {
     // A week
     edge_cache_ttl = 86400 * 7
 
-    email_obfuscation           = ""
-    explicit_cache_control      = ""
-    disable_performance         = false
-    mirage                      = ""
-    true_client_ip_header       = ""
-    automatic_https_rewrites    = ""
-    browser_check               = ""
-    disable_apps                = false
-    disable_zaraz               = false
-    cache_deception_armor       = ""
-    disable_railgun             = false
-    waf                         = ""
-    cache_by_device_type        = ""
-    cache_on_cookie             = ""
-    always_use_https            = false
-    ip_geolocation              = ""
-    respect_strong_etag         = ""
-    rocket_loader               = ""
-    server_side_exclude         = ""
-    ssl                         = ""
-    disable_security            = false
-    opportunistic_encryption    = ""
-    polish                      = ""
-    origin_error_page_pass_thru = ""
-    resolve_override            = ""
-    response_buffering          = ""
-    security_level              = ""
-    sort_query_string_for_cache = ""
-    bypass_cache_on_cookie      = ""
-    host_header_override        = ""
+    // email_obfuscation           = "on"
+    // explicit_cache_control      = ""
+    // disable_performance         = false
+    // mirage                      = ""
+    // true_client_ip_header       = ""
+    // automatic_https_rewrites    = ""
+    // browser_check               = ""
+    // disable_apps                = false
+    // disable_zaraz               = false
+    // cache_deception_armor       = ""
+    // disable_railgun             = false
+    // waf                         = ""
+    // cache_by_device_type        = ""
+    // cache_on_cookie             = ""
+    // always_use_https            = false
+    // ip_geolocation              = ""
+    // respect_strong_etag         = ""
+    // rocket_loader               = ""
+    // server_side_exclude         = ""
+    // ssl                         = ""
+    // disable_security            = false
+    // opportunistic_encryption    = ""
+    // polish                      = ""
+    // origin_error_page_pass_thru = ""
+    // resolve_override            = ""
+    // response_buffering          = ""
+    // security_level              = ""
+    // sort_query_string_for_cache = ""
+    // bypass_cache_on_cookie      = ""
+    // host_header_override        = ""
   }
 
-  priority = 1
-  status   = "active"
+  // priority = 1
+  // status   = "active"
 }
