@@ -37,7 +37,7 @@ export function Home() {
         link="https://youtube.com/robohighlights"
       />
       <PortfolioLink label="Waifudex" link="https://waifudex.com" />
-      <br />© Jaivin Wylde
+      <br />© Jaivin Wylde 2003-{new Date().getFullYear()}
     </>
   )
 }
