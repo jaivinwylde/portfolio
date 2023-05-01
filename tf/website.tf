@@ -1,26 +1,22 @@
-/*
-  Setup the S3 bucket.
-*/
+// Setup the S3 bucket.
 
 // Create the bucket
-resource "aws_s3_bucket" "site" {
+resource "aws_s3_bucket_website_configuration" "site" {
   bucket = var.domain
-  acl    = "public-read"
 
-  website {
-    index_document = "index.html"
-    error_document = "index.html"
+  index_document {
+    suffix = "index.html"
+  }
+  error_document {
+    key = "index.html"
   }
 }
 
 // Create the redirect for www
-resource "aws_s3_bucket" "www" {
+resource "aws_s3_bucket_website_configuration" "www" {
   bucket = "www.${var.domain}"
-  acl    = "private"
 
-  website {
-    redirect_all_requests_to = "https://${var.domain}"
-  }
+  redirect_all_requests_to = "https://${var.domain}"
 }
 
 // Create the policy
@@ -67,6 +63,10 @@ resource "cloudflare_record" "site" {
   value   = aws_s3_bucket.site.website_endpoint
   type    = "CNAME"
   proxied = true
+
+  tags            = [""]
+  comment         = ""
+  allow_overwrite = false
 }
 
 // Add the CNAME for www that points to the root
@@ -76,6 +76,10 @@ resource "cloudflare_record" "www" {
   value   = var.domain
   type    = "CNAME"
   proxied = true
+
+  tags            = [""]
+  comment         = ""
+  allow_overwrite = false
 }
 
 /*
