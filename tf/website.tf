@@ -1,22 +1,24 @@
 // Setup the S3 bucket.
 
 // Create the bucket
-resource "aws_s3_bucket_website_configuration" "site" {
+resource "aws_s3_bucket" "site" {
   bucket = var.domain
+  acl    = "public-read"
 
-  index_document {
-    suffix = "index.html"
-  }
-  error_document {
-    key = "index.html"
+  website {
+    index_document = "index.html"
+    error_document = "index.html"
   }
 }
 
 // Create the redirect for www
-resource "aws_s3_bucket_website_configuration" "www" {
+resource "aws_s3_bucket" "www" {
   bucket = "www.${var.domain}"
+  acl    = "private"
 
-  redirect_all_requests_to = "https://${var.domain}"
+  website {
+    redirect_all_requests_to = "https://${var.domain}"
+  }
 }
 
 // Create the policy
