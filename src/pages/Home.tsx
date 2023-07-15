@@ -33,13 +33,10 @@ export function Home() {
       <br />
       checkout my cool projects
       <PortfolioLink
-        label="Robo Highlights apr 2018-nov 2019"
+        label="Robo Highlights"
         link="https://youtube.com/robohighlights"
       />
-      <PortfolioLink
-        label="Waifudex dec 2019-present"
-        link="https://waifudex.com"
-      />
+      <PortfolioLink label="Waifudex" link="https://waifudex.com" />
       <PortfolioLink
         label="Sojodex (coming soon)"
         link="https://sojodex.com"
