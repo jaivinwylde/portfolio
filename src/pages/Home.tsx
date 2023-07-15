@@ -37,6 +37,10 @@ export function Home() {
         link="https://youtube.com/robohighlights"
       />
       <PortfolioLink label="Waifudex" link="https://waifudex.com" />
+      <PortfolioLink
+        label="Sojodex (coming soon)"
+        link="https://sojodex.com"
+      />
       <br />© Jaivin Wylde 2003-{new Date().getFullYear()}
     </>
   )
