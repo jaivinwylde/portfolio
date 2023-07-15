@@ -3,8 +3,8 @@ import { PortfolioLink } from "../components"
 export function Home() {
   return (
     <>
-      welcome to my very cool and professional website that took many hours and
-      countless sleepless nights to build :)
+      hi i&apos;m Jaivin (jay-vin), welcome to my very cool and professional
+      website that took many hours and countless sleepless nights to build :)
       <br />
       <br />
       get in touch
