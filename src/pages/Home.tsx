@@ -17,7 +17,7 @@ export function Home() {
       />
       <PortfolioLink label="youtube" link="https://youtube.com/@jaiv" />
       <PortfolioLink label="tiktok" link="https://tiktok.com/@jaivinwylde" />
-      <PortfolioLink label="twitter" link="https://twitter.com/jaivinwylde" />
+      <PortfolioLink label="x (twitter)" link="https://x.com/jaivinwylde" />
       <PortfolioLink
         label="reddit"
         link="https://www.reddit.com/u/jaivinwylde"
