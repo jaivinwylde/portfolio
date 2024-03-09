@@ -3,21 +3,22 @@
 // Create the bucket
 resource "aws_s3_bucket" "site" {
   bucket = var.domain
-  acl    = "public-read"
-
-  website {
-    index_document = "index.html"
-    error_document = "index.html"
-  }
 }
 
-// Create the redirect for www
-resource "aws_s3_bucket" "www" {
-  bucket = "www.${var.domain}"
-  acl    = "private"
+resource "aws_s3_bucket_website_configuration" "site" {
+  bucket = aws_s3_bucket.site.id
 
-  website {
-    redirect_all_requests_to = "https://${var.domain}"
+  index_document {
+    suffix = "index.html"
+  }
+
+  error_document {
+    key = "index.html"
+  }
+
+  redirect_all_requests_to = {
+    host_name = "https://${var.domain}"
+    protocol = "https"
   }
 }
 
@@ -42,10 +43,10 @@ resource "aws_s3_bucket_policy" "public_read" {
 }
 
 // Add the files to the bucket
-resource "aws_s3_bucket_object" "site" {
+resource "aws_s3_object" "site" {
   for_each = module.src_dir.files
 
-  bucket       = aws_s3_bucket.site.id
+  bucket = aws_s3_bucket.site.id
   key          = each.key
   content_type = each.value.content_type
   source       = each.value.source_path
