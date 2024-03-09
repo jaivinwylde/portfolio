@@ -3,6 +3,12 @@
 // Create the bucket
 resource "aws_s3_bucket" "site" {
   bucket = var.domain
+
+  lifecycle {
+    ignore_changes = [
+      website
+    ]
+  }
 }
 
 resource "aws_s3_bucket_website_configuration" "site" {
@@ -16,7 +22,7 @@ resource "aws_s3_bucket_website_configuration" "site" {
     key = "index.html"
   }
 
-  redirect_all_requests_to = {
+  redirect_all_requests_to {
     host_name = "https://${var.domain}"
     protocol = "https"
   }
@@ -43,10 +49,10 @@ resource "aws_s3_bucket_policy" "public_read" {
 }
 
 // Add the files to the bucket
-resource "aws_s3_object" "site" {
+resource "aws_s3_bucket_object" "site" {
   for_each = module.src_dir.files
 
-  bucket = aws_s3_bucket.site.id
+  bucket       = aws_s3_bucket.site.id
   key          = each.key
   content_type = each.value.content_type
   source       = each.value.source_path
