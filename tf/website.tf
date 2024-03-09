@@ -12,16 +12,19 @@ resource "aws_s3_bucket" "site" {
 }
 
 resource "aws_s3_bucket_website_configuration" "site" {
-  bucket = aws_s3_bucket.site.id
+  bucket = aws_s3_bucket.site.bucket
 
   index_document {
     suffix = "index.html"
   }
-
-  redirect_all_requests_to {
-    host_name = "https://${var.domain}"
-    protocol = "https"
+  error_document {
+    key = "index.html"
   }
+
+  # redirect_all_requests_to {
+  #   host_name = var.domain
+  #   protocol = "https"
+  # }
 }
 
 // Create the policy
