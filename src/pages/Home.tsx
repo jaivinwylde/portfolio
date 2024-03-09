@@ -70,11 +70,11 @@ export function Home() {
           label="linkedin"
           link="https://www.linkedin.com/in/jaivin-wylde-20a705195/"
         />
+        <PortfolioLink label="x" link="https://x.com/jaivinwylde" />
         <PortfolioLink
           label="instagram"
           link="https://instagram.com/jaivinwylde"
         />
-        <PortfolioLink label="x (twitter)" link="https://x.com/jaivinwylde" />
         <PortfolioLink
           label="twitch"
           link="https://www.twitch.com/jaivinwylde"

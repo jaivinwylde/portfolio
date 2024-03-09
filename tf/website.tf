@@ -18,10 +18,6 @@ resource "aws_s3_bucket_website_configuration" "site" {
     suffix = "index.html"
   }
 
-  error_document {
-    key = "index.html"
-  }
-
   redirect_all_requests_to {
     host_name = "https://${var.domain}"
     protocol = "https"
