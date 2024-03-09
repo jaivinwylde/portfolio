@@ -36,7 +36,7 @@ export function Home() {
         <PortfolioLink
           label="Waifudex"
           link="https://waifudex.com"
-          note="2020- high quality anime/manga database social platform and progress tracker. overarching goal of building an ai that learns from your interests and gives you personalized recommendations you new anime/manga/characters. grew to 66k+ users and 19k+ members in a partnered discord server."
+          note="2020- high quality anime/manga database social platform and progress tracker. overarching goal of building an ai that learns from your interests and gives you personalized recommendations for new anime/manga/characters. grew to 66k+ users and 19k+ members in a partnered discord server."
         />
         <PortfolioLink
           label="Sojodex (coming soon)"
@@ -57,14 +57,14 @@ export function Home() {
           note="made a small amount of high effort videos and grew to 3k+ subscribers."
         />
         <PortfolioLink
-          label="reddit"
-          link="https://www.reddit.com/u/jaivinwylde"
-          note="grew to 14k+ karma and 1m+ total views."
-        />
-        <PortfolioLink
           label="github"
           link="https://www.github.com/jaivinwylde"
           note="won a hackathon in 2020 for building the algo behind socialsense (see pinned repo), an ai powered tool that predicts the best hashtags to use on instagram."
+        />
+        <PortfolioLink
+          label="reddit"
+          link="https://www.reddit.com/u/jaivinwylde"
+          note="grew to 14k+ karma and 1m+ total views."
         />
         <PortfolioLink
           label="linkedin"
