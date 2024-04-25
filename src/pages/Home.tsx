@@ -50,7 +50,7 @@ export function Home() {
         <PortfolioLink
           label="Drum to LEARN"
           link="https://drumtolearn.com"
-          note="2024 crafted a beautiful frontend, made a new brand identity and logo, made a custom backend for a class scheduling system and newsletter, finished in 10 days."
+          note="2024 crafted a beautiful frontend, made a new brand identity and logo, made a backend for a class scheduling system and newsletter. finished in 10 days."
         />
       </Group>
       <Group>
