@@ -40,9 +40,14 @@ export function Home() {
           note="2020- high quality anime/manga database social platform and progress tracker. overarching goal of building an ai that learns from your interests and gives you personalized recommendations for new anime/manga/characters. grew to 66k+ users and 19k+ members in a partnered discord server."
         />
         <PortfolioLink
-          label="Sojodex (coming soon)"
+          label="Sojodex (coming idk when)"
           link="https://sojodex.com"
-          note="a secret"
+          note="an on hold dream project"
+        />
+        <PortfolioLink
+          label="spidey.ai"
+          link="https://spidey.ai"
+          note="makes learning addicting. talk to an ai tutor to learn concepts and turn your homework into a game."
         />
       </Group>
       <Group>
