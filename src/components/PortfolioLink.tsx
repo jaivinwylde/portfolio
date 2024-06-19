@@ -10,7 +10,7 @@ export function PortfolioLink({ label, link, note }: PortfolioLinkProps) {
       <a
         style={{ color: "#4393bf", fontWeight: 700 }}
         href={link}
-        target="_blank"
+        target={link.startsWith("https") ? "_blank" : undefined}
         rel="noreferrer"
       >
         {label}

@@ -26,8 +26,9 @@ export function Home() {
         <br />
         get in touch
         <PortfolioLink label="me@jai.vin" link="mailto:me@jai.vin" />
-        <PortfolioLink label="cv" link="https://jai.vin/cv.pdf" />
+        <PortfolioLink label="cv" link="/cv.pdf" />
       </Group>
+      <PortfolioLink label="blog" link="/blog" />
       <Group>
         checkout my cool projects
         <PortfolioLink
