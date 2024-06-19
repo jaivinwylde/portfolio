@@ -277,7 +277,7 @@ self.output = nn.Linear(512, 1)`}
         3 convolutional layers, 2 dense layers, and a final sigmoid output. we
         take this simple model and do something interesting when training. we
         look at two images and pass both through the same convolutional layers.
-        then we get the absolute difference of the vectors before passing them
+        then we get the absolute difference of the vectors and pass that
         through the dense layers.
       </p>
       <Code
@@ -295,6 +295,7 @@ for index, x in enumerate(input):
 # Get the absolute difference of the two image vectors
 out = abs(input[0].view(input[0].size(0), -1) - input[1].view(input[1].size(0), -1))
 
+# Pass the difference through the dense layers
 out = self.relu(self.hidden1(out))
 out = self.relu(self.hidden2(out))
 
@@ -346,10 +347,6 @@ return self.sigmoid(self.output(out))`}
         proud of our work.
       </p>
 
-      <PortfolioLink
-        label="github repo"
-        link="https://github.com/omerdemirkan/socialsense/tree/master"
-      />
       <PortfolioLink
         label="hackathon submittion"
         link="https://devpost.com/software/socialsense-ai"
